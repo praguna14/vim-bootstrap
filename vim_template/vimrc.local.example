@@ -1,2 +1,16 @@
 " MyConf
 let g:snips_author = "You Name"
+
+set relativenumber
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Mappings created by me
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mappings for compiling
+autocmd filetype python nnoremap <F9> :w <bar> exec '!python '.shellescape('%')<CR>
+autocmd filetype c nnoremap <F9> :w <bar> exec '!gcc -g '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F9> :w <bar> exec '!g++ -g '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+" mappings for using gdb for c and cpp files
+"
+ autocmd filetype c nnoremap <F10> :w <bar> exec '!gdb '.shellescape('%:r)<CR> 
